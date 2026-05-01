@@ -22,6 +22,10 @@ namespace AdminAuditApp.Services
             {
                 throw new ArgumentException("Name cannot be null or empty");
             }
+            if (string.IsNullOrWhiteSpace(user.Email))
+            {
+                throw new ArgumentException("Email cannot be null or empty");
+            }
             _user.Add(user);
         }
     }
