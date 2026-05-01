@@ -9,7 +9,7 @@ namespace AdminAuditApp.Services
 {
     public class UserService
     {
-       private List<User> _user = new List<User>();
+       private List<User> _users = new List<User>();
 
 
         public void AddUser(User user)
@@ -26,7 +26,16 @@ namespace AdminAuditApp.Services
             {
                 throw new ArgumentException("Email cannot be null or empty");
             }
-            _user.Add(user);
+            if(_users.Any(u => u.Email == user.Email))
+            {
+                throw new ArgumentException("Email already exists.");
+            }
+            if (!user.Email.Contains("@"))
+            {
+                throw new ArgumentException("Invalid email format");
+            }
+            
+            _users.Add(user);
         }
     }
 
