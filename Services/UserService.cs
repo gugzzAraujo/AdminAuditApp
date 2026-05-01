@@ -12,32 +12,64 @@ namespace AdminAuditApp.Services
        private List<User> _users = new List<User>();
 
 
-        public void AddUser(User user)
+        public ResultadoOperacao AddUser(User user)
         {
+            if (!user.Email.Contains("@"))
+            {
+                return new ResultadoOperacao
+                {
+                    Sucesso = false,
+                    MensagemErro = "Invalid email format"
+                };
+            }
             if(user.Age < 0)
             {
-                throw new ArgumentException("Age cannot be negative.");
+                return new ResultadoOperacao
+                {
+                    Sucesso = false,
+                    MensagemErro = "Age cannot be negative"
+                };
             }
             if(string.IsNullOrWhiteSpace(user.Name))
             {
-                throw new ArgumentException("Name cannot be null or empty");
+                return new ResultadoOperacao
+                {
+                    Sucesso = false,
+                    MensagemErro = "Name cannot be null or empty"
+                };
             }
             if (string.IsNullOrWhiteSpace(user.Email))
             {
-                throw new ArgumentException("Email cannot be null or empty");
+                return new ResultadoOperacao
+                {
+                    Sucesso = false,
+                    MensagemErro = "Email cannot be null or empty"
+                };
             }
             if(_users.Any(u => u.Email == user.Email))
             {
-                throw new ArgumentException("Email already exists.");
+                return new ResultadoOperacao 
+                { 
+                    Sucesso = false,
+                    MensagemErro = "Email already exists." 
+                };
             }
             if (!user.Email.Contains("@"))
             {
-                throw new ArgumentException("Invalid email format");
+                return new ResultadoOperacao
+                {
+                    Sucesso = false,
+                    MensagemErro = "Invalid email format."
+                };
             }
             
             _users.Add(user);
+
+            return new ResultadoOperacao
+            {
+                Sucesso = true,
+                MensagemErro = ""
+            };
         }
     }
-
-
 }
