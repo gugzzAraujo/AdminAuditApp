@@ -12,7 +12,7 @@ namespace AdminAuditApp.Services
        private List<User> _user = new List<User>();
 
 
-        public string AddUser(User user)
+        public void AddUser(User user)
         {
             if(user.Age < 0)
             {

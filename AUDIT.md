@@ -1,0 +1,1 @@
+The method throws an ArgumentException when the name is null, empty, or whitespace because a valid user entity requires a defined name.
