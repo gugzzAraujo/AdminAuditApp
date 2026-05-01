@@ -9,12 +9,20 @@ namespace AdminAuditApp.Services
 {
     public class UserService
     {
-       private List<string> user = new List<string>();
+       private List<User> _user = new List<User>();
 
 
         public string AddUser(User user)
         {
-            return 0.ToString();
+            if(user.Age < 0)
+            {
+                throw new ArgumentException("Age cannot be negative.");
+            }
+            if(string.IsNullOrWhiteSpace(user.Name))
+            {
+                throw new ArgumentException("Name cannot be null or empty");
+            }
+            _user.Add(user);
         }
     }
 
