@@ -14,14 +14,6 @@ namespace AdminAuditApp.Services
 
         public ResultadoOperacao AddUser(User user)
         {
-            if (!user.Email.Contains("@"))
-            {
-                return new ResultadoOperacao
-                {
-                    Sucesso = false,
-                    MensagemErro = "Invalid email format"
-                };
-            }
             if(user.Age < 0)
             {
                 return new ResultadoOperacao
@@ -46,14 +38,6 @@ namespace AdminAuditApp.Services
                     MensagemErro = "Email cannot be null or empty"
                 };
             }
-            if(_users.Any(u => u.Email == user.Email))
-            {
-                return new ResultadoOperacao 
-                { 
-                    Sucesso = false,
-                    MensagemErro = "Email already exists." 
-                };
-            }
             if (!user.Email.Contains("@"))
             {
                 return new ResultadoOperacao
@@ -62,7 +46,14 @@ namespace AdminAuditApp.Services
                     MensagemErro = "Invalid email format."
                 };
             }
-            
+            if (_users.Any(u => u.Email == user.Email))
+            {
+                return new ResultadoOperacao 
+                { 
+                    Sucesso = false,
+                    MensagemErro = "Email already exists." 
+                };
+            }
             _users.Add(user);
 
             return new ResultadoOperacao
@@ -71,5 +62,7 @@ namespace AdminAuditApp.Services
                 MensagemErro = ""
             };
         }
+
+        
     }
 }
