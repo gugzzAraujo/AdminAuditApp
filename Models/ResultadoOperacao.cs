@@ -13,5 +13,7 @@ namespace AdminAuditApp.Models
 
         // Propriedade que guarda a mensagem de erro (caso Sucesso seja false)
         public string MensagemErro { get; set; }
+
+        public User Dados { get; set; }
     }
 }

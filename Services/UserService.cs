@@ -63,6 +63,33 @@ namespace AdminAuditApp.Services
             };
         }
 
-        
+        public ResultadoOperacao GetUserByEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                return new ResultadoOperacao
+                {
+                    Sucesso = false,
+                    MensagemErro = "Search Email cannot be null or empty."
+                };
+            }
+
+            var user = _users.FirstOrDefault(u => u.Email == email);
+            if(user == null)
+            {
+                return new ResultadoOperacao
+                {
+                    Sucesso = false,
+                    MensagemErro = "User not found."
+                };
+            }
+
+            return new ResultadoOperacao
+            {
+                Sucesso = true,
+                MensagemErro = "",
+                Dados = user
+            };
+        }
     }
 }
