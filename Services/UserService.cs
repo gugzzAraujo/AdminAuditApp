@@ -91,5 +91,77 @@ namespace AdminAuditApp.Services
                 Dados = user
             };
         }
+
+        public ResultadoOperacao UpdateUser(string emailParaBuscar, User novosDados)
+        {
+            if (string.IsNullOrWhiteSpace(emailParaBuscar))
+            {
+                return new ResultadoOperacao
+                {
+                    Sucesso = false,
+                    MensagemErro = "Search Email cannot be null or empty."
+                };
+            }
+            var user = _users.FirstOrDefault(u => u.Email == emailParaBuscar);
+            if(user == null)
+            {
+                return new ResultadoOperacao
+                {
+                    Sucesso = false,
+                    MensagemErro = "User not found."
+                };
+            }
+            if(novosDados.Age < 0)
+            {
+                return new ResultadoOperacao
+                {
+                    Sucesso = false,
+                    MensagemErro = "Age cannot be negative"
+                };
+            }
+            if (string.IsNullOrWhiteSpace(novosDados.Name))
+            {
+                return new ResultadoOperacao
+                {
+                    Sucesso = false,
+                    MensagemErro = "Name cannot be null or empty"
+                };
+            }
+            if (string.IsNullOrWhiteSpace(novosDados.Email))
+            {
+                return new ResultadoOperacao
+                {
+                    Sucesso = false,
+                    MensagemErro = "Email cannot be null or empty"
+                };
+            }
+            if (!novosDados.Email.Contains("@"))
+            {
+                return new ResultadoOperacao
+                {
+                    Sucesso = false,
+                    MensagemErro = "Invalid email format."
+                };
+            }
+            if (_users.Any(u => u.Email == novosDados.Email && u.Email != emailParaBuscar))
+            {
+                return new ResultadoOperacao
+                {
+                    Sucesso = false,
+                    MensagemErro = "Email already exists."
+                };
+            }
+
+            user.Name = novosDados.Name;
+            user.Age = novosDados.Age;
+            user.Email = novosDados.Email;
+
+            return new ResultadoOperacao
+            {
+                Sucesso = true,
+                MensagemErro = "",
+                Dados = user
+            };
+        }
     }
 }
