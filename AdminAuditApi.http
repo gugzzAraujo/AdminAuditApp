@@ -1,0 +1,24 @@
+@Host = https://localhost:7264
+
+### 1. Teste do Create (POST)
+POST {{Host}}/api/user/adicionar
+Content-Type: application/json
+
+{
+  "name": "Gustavo",
+  "email": "gustavo@emil.com",
+  "age": 18
+}
+
+### 2. Teste do Read (GET)
+GET {{Host}}/api/user/buscar/gustavo@email.com
+
+### 3. Teste do Update (PUT)
+PUT {{Host}}/api/user/atualizar/gustavo@email.com
+Content-Type: application/json
+
+{
+  "name": "Gustavo Silva Atualizado",
+  "email": "gustavo@email.com",
+  "age": 19
+}

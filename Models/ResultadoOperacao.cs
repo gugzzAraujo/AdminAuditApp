@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdminAuditApp.Models
+namespace AdminAuditApi.Models
 {
     public class ResultadoOperacao
     {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35931.197 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminAuditApp", "AdminAuditApp.csproj", "{F1BE43F2-F60B-41B8-9CFE-EACD3B5D9151}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminAuditApi", "AdminAuditApi.csproj", "{63477C55-EF59-44A0-9940-301F3BBC733A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F1BE43F2-F60B-41B8-9CFE-EACD3B5D9151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1BE43F2-F60B-41B8-9CFE-EACD3B5D9151}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F1BE43F2-F60B-41B8-9CFE-EACD3B5D9151}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F1BE43F2-F60B-41B8-9CFE-EACD3B5D9151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63477C55-EF59-44A0-9940-301F3BBC733A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63477C55-EF59-44A0-9940-301F3BBC733A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63477C55-EF59-44A0-9940-301F3BBC733A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63477C55-EF59-44A0-9940-301F3BBC733A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A046222C-5095-42B8-B7FA-80CCE5BB3A59}
+		SolutionGuid = {5BFC38DD-9CD7-4631-B5C2-7C0EB48A1CF0}
 	EndGlobalSection
 EndGlobal
